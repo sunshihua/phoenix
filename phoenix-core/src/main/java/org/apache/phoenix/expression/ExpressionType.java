@@ -17,7 +17,7 @@
  */
 package org.apache.phoenix.expression;
 
-import java.util.Map;
+import com.google.common.collect.Maps;
 
 import org.apache.phoenix.expression.function.ArrayAllComparisonExpression;
 import org.apache.phoenix.expression.function.ArrayAnyComparisonExpression;
@@ -78,8 +78,9 @@ import org.apache.phoenix.expression.function.ToNumberFunction;
 import org.apache.phoenix.expression.function.TrimFunction;
 import org.apache.phoenix.expression.function.TruncFunction;
 import org.apache.phoenix.expression.function.UpperFunction;
+import org.apache.phoenix.expression.function.UuidGenFunction;
 
-import com.google.common.collect.Maps;
+import java.util.Map;
 
 /**
  *
@@ -94,6 +95,7 @@ import com.google.common.collect.Maps;
 // Important : When you want to add new Types make sure to add those towards the end, not changing the existing type's
 // ordinal
 public enum ExpressionType {
+    UuidGenFunction(UuidGenFunction.class),
     ReverseFunction(ReverseFunction.class),
     RowKey(RowKeyColumnExpression.class),
     KeyValue(KeyValueColumnExpression.class),
